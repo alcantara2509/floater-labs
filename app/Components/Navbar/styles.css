@@ -1,3 +1,18 @@
+header {
+  color: whitesmoke;
+  font-weight: 700;
+}
+
 .selected {
   color: green;
+}
+
+.header {
+  align-items: center;
+  background-color: var(--darkGray);
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100vw;
 }
