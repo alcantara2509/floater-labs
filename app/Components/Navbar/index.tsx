@@ -21,7 +21,7 @@ function Navbar() {
         <Hamburger size={28} toggled={isOpen} toggle={setOpen} color="whitesmoke" />
       </div>
       <Drawer
-        anchor="left"
+        anchor="right"
         open={isOpen}
         onClose={handleClose}
         className="drawer-wrapper"
