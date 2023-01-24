@@ -1,9 +1,9 @@
-import Wheel from './Components/Wheel';
+import Home from './home';
 
 function page() {
   return (
     <div>
-      <Wheel />
+      <Home />
     </div>
   );
 }

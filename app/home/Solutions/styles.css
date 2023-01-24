@@ -1,0 +1,25 @@
+.solutions-wrapper {
+  background-color: var(--darkGray);
+  height: 400px;
+  width: 100vw;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.solutions-content {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.2px);
+  -webkit-backdrop-filter: blur(8.2px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  margin-top: -80px;
+  margin-bottom: 100px;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: whitesmoke;
+}

@@ -7,7 +7,12 @@ function Wheel() {
 
   return (
     <div className="p-20">
-      <div style={{ transform: `rotate(${angle}deg)`, position: 'fixed', transition: 'transform 1s' }}>rodinha legal</div>
+      <div style={{
+        transform: `rotate(${angle}deg)`, position: 'fixed', transition: 'transform 1s',
+      }}
+      >
+        rodinha legal
+      </div>
       <button type="button" className="mt-20" onClick={() => setAngle(angle - 72)}>-</button>
       <button type="button" className="mt-20 ml-6" onClick={() => setAngle(angle + 72)}>+</button>
     </div>
