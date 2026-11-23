@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floater Labs: logo</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--tinta:#121A1C;--nevoa:#F4F6F5;--noite:#0F1517;--mare:#2A95A4;--borda:#D9DEDD}
+*{box-sizing:border-box}
+body{margin:0;background:var(--nevoa);color:var(--tinta);font-family:Sora,system-ui,sans-serif;font-size:15px;line-height:1.5}
+main{max-width:960px;margin:0 auto;padding:32px 16px 64px;display:grid;gap:16px}
+.bloco{border-radius:16px;padding:32px;border:1px solid var(--borda);background:#fff}
+.escuro{background:var(--noite);border-color:var(--noite);color:var(--nevoa)}
+.rotulo{font-size:12px;letter-spacing:.04em;text-transform:uppercase;opacity:.6;margin:0 0 20px}
+.hero{display:grid;place-items:center;padding:72px 32px}
+.hero img{width:min(520px,100%);height:auto}
+.linha{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap}
+.linha figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px}
+.linha figure span{opacity:.7}
+.duas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.ig{display:flex;align-items:center;gap:20px}
+.ig img{border-radius:50%;display:block}
+.cores{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cor{border-radius:12px;height:96px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;font-size:13px}
+.marca-clara{width:min(420px,100%);height:auto}
+ul{margin:0;padding-left:18px}
+a{color:var(--tinta)}
+</style>
+</head>
+<body>
+<main>
+<section class="bloco escuro hero"><img src="marca-branca.svg" alt="Floater Labs"></section>
+
+<section class="bloco"><p class="rotulo">Marca no fundo claro</p><img class="marca-clara" src="marca.svg" alt="Floater Labs"></section>
+
+<div class="duas">
+<section class="bloco escuro">
+<p class="rotulo">Símbolo no escuro</p>
+<div class="linha">
+<figure><img src="simbolo-branco.svg" height="128" alt=""><span>128</span></figure>
+<figure><img src="simbolo-branco.svg" height="64" alt=""><span>64</span></figure>
+<figure><img src="simbolo-branco.svg" height="32" alt=""><span>32</span></figure>
+<figure><img src="simbolo-branco.svg" height="16" alt=""><span>16</span></figure>
+</div>
+</section>
+<section class="bloco">
+<p class="rotulo">Símbolo no claro</p>
+<div class="linha">
+<figure><img src="simbolo.svg" height="128" alt=""><span>128</span></figure>
+<figure><img src="simbolo.svg" height="64" alt=""><span>64</span></figure>
+<figure><img src="simbolo.svg" height="32" alt=""><span>32</span></figure>
+<figure><img src="simbolo.svg" height="16" alt=""><span>16</span></figure>
+</div>
+</section>
+</div>
+
+<div class="duas">
+<section class="bloco escuro">
+<p class="rotulo">Avatar do Instagram</p>
+<div class="ig">
+<img src="avatar.png" width="150" height="150" alt="">
+<img src="avatar.png" width="56" height="56" alt="">
+<img src="avatar.png" width="32" height="32" alt="">
+</div>
+</section>
+<section class="bloco">
+<p class="rotulo">Favicon e ícone</p>
+<div class="linha">
+<figure><img src="apple-touch-icon.png" width="90" height="90" alt="" style="border-radius:20px"><span>iPhone</span></figure>
+<figure><img src="favicon.svg" width="32" height="32" alt=""><span>32</span></figure>
+<figure><img src="favicon.svg" width="16" height="16" alt=""><span>16</span></figure>
+</div>
+</section>
+</div>
+
+<section class="bloco">
+<p class="rotulo">Cores</p>
+<div class="cores">
+<div class="cor" style="background:var(--noite);color:var(--nevoa)">Noite<br>#0F1517</div>
+<div class="cor" style="background:var(--tinta);color:var(--nevoa)">Tinta<br>#121A1C</div>
+<div class="cor" style="background:var(--nevoa);color:var(--tinta);border:1px solid var(--borda)">Névoa<br>#F4F6F5</div>
+<div class="cor" style="background:var(--mare);color:var(--noite)">Maré<br>#2A95A4</div>
+</div>
+</section>
+
+<section class="bloco">
+<p class="rotulo">Arquivos</p>
+<ul>
+<li><a href="marca.svg">marca.svg</a> e <a href="marca-branca.svg">marca-branca.svg</a>: símbolo com o nome, texto já em curvas</li>
+<li><a href="simbolo.svg">simbolo.svg</a> e <a href="simbolo-branco.svg">simbolo-branco.svg</a>: só o símbolo</li>
+<li><a href="avatar.png">avatar.png</a>: 1080 × 1080 para o Instagram</li>
+<li><a href="favicon.svg">favicon.svg</a>, <a href="favicon.png">favicon.png</a> e <a href="apple-touch-icon.png">apple-touch-icon.png</a>: para o site</li>
+</ul>
+</section>
+</main>
+</body>
+</html>

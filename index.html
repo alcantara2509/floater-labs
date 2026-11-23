@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floater Labs: estúdio de apps e web</title>
+<meta name="description" content="Criamos apps, sites e sistemas que dão vontade de usar. Design, código e publicação, do primeiro esboço até o app na loja.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Floater Labs: estúdio de apps e web">
+<meta property="og:description" content="Criamos apps, sites e sistemas que dão vontade de usar.">
+<meta property="og:image" content="https://floaterlabs.com/img/compartilhar.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://floaterlabs.com/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://floaterlabs.com/">
+<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="logo/favicon.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1517" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F6F5;--fg:#121A1C;--muted:#4D5A5D;--linha:#D5DCDB;--superficie:#E8EDEC;
+  --mare:#2A95A4;--botao:#121A1C;--botao-texto:#F4F6F5;
+  --raio:12px;--largura:1120px;--lateral:16px;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0F1517;--fg:#F4F6F5;--muted:#A0AEB0;--linha:#253033;--superficie:#162023;--botao:#F4F6F5;--botao-texto:#0F1517}
+}
+@media (min-width:768px){:root{--lateral:32px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Sora,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+a:focus-visible{outline:3px solid var(--mare);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-weight:600;letter-spacing:-.025em;margin:0}
+p{margin:0}
+.envolve{max-width:var(--largura);margin:0 auto;padding-inline:var(--lateral)}
+.pular{position:absolute;left:-9999px;top:0;background:var(--botao);color:var(--botao-texto);padding:.75rem 1rem;border-radius:var(--raio);z-index:2}
+.pular:focus{left:var(--lateral);top:.75rem}
+
+.topo{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.25rem}
+.topo .logo img{height:28px;width:auto}
+.topo nav{display:flex;gap:1.5rem;font-size:.9375rem}
+.topo nav a{text-decoration:none;color:var(--muted)}
+.topo nav a:hover{color:var(--fg)}
+.topo nav .so-desktop{display:none}
+@media (min-width:768px){.topo nav .so-desktop{display:inline}.topo .logo img{height:32px}}
+
+.hero{padding-block:4rem 3rem}
+@media (min-width:768px){.hero{padding-block:7rem 5rem}}
+.sobretitulo{font-size:.9375rem;color:var(--muted);margin-bottom:1.25rem}
+.hero h1{font-size:clamp(2.5rem,7vw,4.75rem);line-height:1.04;letter-spacing:-.035em;max-width:15ch}
+.hero .lead{font-size:clamp(1.125rem,2vw,1.3125rem);color:var(--muted);max-width:38ch;margin-top:1.5rem}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:2.25rem}
+.botao{display:inline-block;background:var(--botao);color:var(--botao-texto);text-decoration:none;font-weight:600;padding:.875rem 1.5rem;border-radius:var(--raio);transition:transform .15s ease}
+.botao:hover{transform:translateY(-1px)}
+.botao:focus-visible{outline:3px solid var(--mare);outline-offset:3px}
+.link-seta{font-weight:600;text-decoration:none}
+.link-seta::after{content:" →"}
+.link-seta:hover{text-decoration:underline}
+
+.onda{display:block;width:100%;height:40px;color:var(--mare)}
+.onda path{fill:none;stroke:currentColor;stroke-width:2;vector-effect:non-scaling-stroke}
+
+.secao{padding-block:4rem}
+@media (min-width:768px){.secao{padding-block:4.5rem}}
+.secao h2{font-size:clamp(1.75rem,3.6vw,2.5rem);line-height:1.15}
+
+.servicos-grade{display:grid;gap:2rem}
+@media (min-width:900px){.servicos-grade{grid-template-columns:1fr 2fr;gap:4rem}}
+.servicos-grade .intro{color:var(--muted);margin-top:1rem;max-width:30ch}
+.servicos{list-style:none;margin:0;padding:0}
+.servicos li{display:grid;gap:.375rem;padding-block:1.5rem;border-top:1px solid var(--linha)}
+.servicos li:last-child{border-bottom:1px solid var(--linha)}
+@media (min-width:640px){.servicos li{grid-template-columns:11rem 1fr;gap:1.5rem;align-items:baseline}}
+.servicos h3{font-size:1.25rem}
+.servicos p{color:var(--muted)}
+
+.wendly{display:grid;gap:2rem;align-items:center}
+@media (min-width:900px){.wendly{grid-template-columns:1.15fr 1fr;gap:4rem}}
+.wendly .imagem{border-radius:16px;overflow:hidden;background:var(--superficie)}
+.wendly .titulo{display:flex;align-items:center;gap:.875rem;margin-bottom:1rem}
+.wendly .titulo img{width:52px;height:52px;border-radius:12px}
+.wendly p + p{margin-top:1rem}
+.wendly .nota{font-size:.9375rem;color:var(--muted)}
+.wendly .link-seta{display:inline-block;margin-top:1.5rem}
+
+.nome{display:grid;gap:2rem;align-items:center}
+@media (min-width:768px){.nome{grid-template-columns:auto 1fr;gap:3.5rem}}
+.nome .simbolo{width:88px}
+@media (min-width:768px){.nome .simbolo{width:120px}}
+.nome p{font-size:clamp(1.1875rem,2.2vw,1.4375rem);line-height:1.55;max-width:40ch;margin-top:1rem}
+
+.contato{background:var(--superficie);border-radius:20px;padding:3rem 1.5rem;text-align:left}
+@media (min-width:768px){.contato{padding:4.5rem 4rem}}
+.contato p{color:var(--muted);margin-top:1rem;max-width:42ch}
+.contato .botao{margin-top:2rem}
+
+.rodape{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-block:3rem 2.5rem;font-size:.9375rem;color:var(--muted)}
+.rodape .marca{display:flex;align-items:center;gap:.75rem}
+.rodape img{height:24px;width:auto}
+.rodape a{color:var(--muted)}
+.rodape a:hover{color:var(--fg)}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="envolve topo">
+<a class="logo" href="/" aria-label="Floater Labs, início">
+<picture>
+<source srcset="logo/marca-branca.svg" media="(prefers-color-scheme: dark)">
+<img src="logo/marca.svg" alt="Floater Labs" width="177" height="30">
+</picture>
+</a>
+<nav aria-label="Principal">
+<a class="so-desktop" href="#servicos">O que fazemos</a>
+<a class="so-desktop" href="#wendly">Wendly</a>
+<a href="#contato">Contato</a>
+</nav>
+</header>
+
+<main id="conteudo">
+<section class="envolve hero">
+<p class="sobretitulo">Estúdio de apps e web</p>
+<h1>Criamos apps, sites e sistemas que dão vontade de usar.</h1>
+<p class="lead">Cuidamos do design, do código e da publicação, do primeiro esboço até o app na loja.</p>
+<div class="acoes">
+<a class="botao" href="https://ig.me/m/floater.labs">Conversar no Instagram</a>
+<a class="link-seta" href="#wendly">Conhecer o Wendly, nosso app</a>
+</div>
+</section>
+
+<div class="envolve" aria-hidden="true">
+<svg class="onda" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 8C300 8 300 32 600 32S900 8 1200 8"/></svg>
+</div>
+
+<section class="envolve secao" id="servicos" aria-labelledby="t-servicos">
+<div class="servicos-grade">
+<div>
+<h2 id="t-servicos">O que fazemos</h2>
+<p class="intro">Projetos do zero ou a continuação de algo que já existe.</p>
+</div>
+<ul class="servicos">
+<li><h3>Apps</h3><p>Apps para iPhone e Android, do protótipo à publicação nas lojas.</p></li>
+<li><h3>Sites</h3><p>Sites rápidos, bonitos e que funcionam bem no celular, de uma página só a um site institucional.</p></li>
+<li><h3>Sistemas</h3><p>Painéis, ferramentas internas e sistemas web sob medida para o seu negócio.</p></li>
+<li><h3>Design e UX</h3><p>Interface, fluxos e protótipos navegáveis para testar a ideia antes de programar.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="envolve secao" id="wendly" aria-labelledby="t-wendly">
+<div class="wendly">
+<div class="imagem"><img src="img/wendly.webp" alt="O explorador do Wendly acampado numa ilha flutuante, à noite, com um baú numa ilha ao lado" width="1024" height="500" loading="lazy"></div>
+<div>
+<p class="sobretitulo">Feito aqui</p>
+<div class="titulo"><img src="img/wendly-icone.webp" alt="" width="52" height="52" loading="lazy"><h2 id="t-wendly">Wendly</h2></div>
+<p>Nosso primeiro app próprio: uma lista de tarefas com um explorador. Cada tarefa feita enche a mochila dele, e ele volta das expedições com moedas, baús e lembranças.</p>
+<p class="nota">Disponível para Android. Sem cadastro, sem anúncios e sem compras.</p>
+<a class="link-seta" href="https://wendly.floaterlabs.com/">Conhecer o Wendly</a>
+</div>
+</div>
+</section>
+
+<section class="envolve secao" aria-labelledby="t-nome">
+<div class="nome">
+<picture>
+<source srcset="logo/simbolo-branco.svg" media="(prefers-color-scheme: dark)">
+<img class="simbolo" src="logo/simbolo.svg" alt="" width="120" height="170">
+</picture>
+<div>
+<h2 id="t-nome">Por que floater?</h2>
+<p>Floater é uma manobra do surfe: o surfista sobe na parte da onda que está quebrando, desliza por cima dela e volta para a base. É a ideia que levamos para cada projeto: passar por cima do que parece difícil e deixar tudo leve para quem usa.</p>
+</div>
+</div>
+</section>
+
+<section class="envolve secao" id="contato" aria-labelledby="t-contato">
+<div class="contato">
+<h2 id="t-contato">Tem um projeto em mente?</h2>
+<p>Conte o que você quer construir. A conversa começa pelo Instagram, sem compromisso.</p>
+<a class="botao" href="https://ig.me/m/floater.labs">Mandar mensagem no Instagram</a>
+</div>
+</section>
+</main>
+
+<footer class="envolve rodape">
+<div class="marca">
+<picture>
+<source srcset="logo/simbolo-branco.svg" media="(prefers-color-scheme: dark)">
+<img src="logo/simbolo.svg" alt="" width="17" height="24">
+</picture>
+<span>© 2026 Floater Labs</span>
+</div>
+<a href="https://www.instagram.com/floater.labs/">Instagram @floater.labs</a>
+</footer>
+</body>
+</html>
