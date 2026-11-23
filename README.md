@@ -4,7 +4,7 @@ Site da Floater Labs, estúdio de apps e web. HTML estático, sem build, publica
 
 - `index.html`: a página
 - `404.html`: página de endereço não encontrado
-- `img/`: imagem de compartilhamento e imagens do Wendly
+- `img/`: imagem de compartilhamento; `img/projetos/` tem as telas do Wendly e os mocks dos projetos
 - `logo/`: marca, símbolo, avatar e favicons; `logo/index.html` mostra o kit
 - `CNAME`: domínio `floaterlabs.com`
 

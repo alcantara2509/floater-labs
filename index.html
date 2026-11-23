@@ -18,25 +18,24 @@
 <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="logo/favicon.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="logo/apple-touch-icon.png">
-<meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1517" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0F1517">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F4F6F5;--fg:#121A1C;--muted:#4D5A5D;--linha:#D5DCDB;--superficie:#E8EDEC;
-  --mare:#2A95A4;--botao:#121A1C;--botao-texto:#F4F6F5;
-  --raio:12px;--largura:1120px;--lateral:16px;
+  --bg:#F4F6F5;--fg:#121A1C;--muted:#4D5A5D;--linha:#D5DCDB;--superficie:#E8EDEC;--cartao:#FFFFFF;
+  --escuro:#0F1517;--escuro-fg:#F4F6F5;--escuro-muted:#A0AEB0;--escuro-linha:#253033;
+  --mare:#2A95A4;--raio:12px;--largura:1200px;--lateral:16px;
+  --w-fundo:#132624;--w-verde:#6EDC8C;--w-texto:#E9F3EF;--w-muted:#A9C2BA;
   color-scheme:light dark;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#0F1517;--fg:#F4F6F5;--muted:#A0AEB0;--linha:#253033;--superficie:#162023;--botao:#F4F6F5;--botao-texto:#0F1517}
+  :root{--bg:#0F1517;--fg:#F4F6F5;--muted:#A0AEB0;--linha:#253033;--superficie:#141D20;--cartao:#1D292C;--escuro:#0A1012;--escuro-linha:#1E282B}
 }
 @media (min-width:768px){:root{--lateral:32px}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:Sora,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
@@ -44,171 +43,282 @@ a:focus-visible{outline:3px solid var(--mare);outline-offset:3px;border-radius:4
 h1,h2,h3{font-weight:600;letter-spacing:-.025em;margin:0}
 p{margin:0}
 .envolve{max-width:var(--largura);margin:0 auto;padding-inline:var(--lateral)}
-.pular{position:absolute;left:-9999px;top:0;background:var(--botao);color:var(--botao-texto);padding:.75rem 1rem;border-radius:var(--raio);z-index:2}
+.pular{position:absolute;left:-9999px;top:0;background:var(--escuro-fg);color:var(--escuro);padding:.75rem 1rem;border-radius:var(--raio);z-index:5}
 .pular:focus{left:var(--lateral);top:.75rem}
-
-.topo{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.25rem}
-.topo .logo img{height:28px;width:auto}
-.topo nav{display:flex;gap:1.5rem;font-size:.9375rem}
-.topo nav a{text-decoration:none;color:var(--muted)}
-.topo nav a:hover{color:var(--fg)}
-.topo nav .so-desktop{display:none}
-@media (min-width:768px){.topo nav .so-desktop{display:inline}.topo .logo img{height:32px}}
-
-.hero{padding-block:4rem 3rem}
-@media (min-width:768px){.hero{padding-block:7rem 5rem}}
-.sobretitulo{font-size:.9375rem;color:var(--muted);margin-bottom:1.25rem}
-.hero h1{font-size:clamp(2.5rem,7vw,4.75rem);line-height:1.04;letter-spacing:-.035em;max-width:15ch}
-.hero .lead{font-size:clamp(1.125rem,2vw,1.3125rem);color:var(--muted);max-width:38ch;margin-top:1.5rem}
-.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:2.25rem}
-.botao{display:inline-block;background:var(--botao);color:var(--botao-texto);text-decoration:none;font-weight:600;padding:.875rem 1.5rem;border-radius:var(--raio);transition:transform .15s ease}
+.botao{display:inline-block;text-decoration:none;font-weight:600;padding:.875rem 1.5rem;border-radius:var(--raio);transition:transform .15s ease}
 .botao:hover{transform:translateY(-1px)}
 .botao:focus-visible{outline:3px solid var(--mare);outline-offset:3px}
+.botao-claro{background:var(--escuro-fg);color:var(--escuro)}
 .link-seta{font-weight:600;text-decoration:none}
 .link-seta::after{content:" →"}
 .link-seta:hover{text-decoration:underline}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem}
+.sobretitulo{font-size:.9375rem;color:var(--muted);margin-bottom:1rem}
 
-.onda{display:block;width:100%;height:40px;color:var(--mare)}
-.onda path{fill:none;stroke:currentColor;stroke-width:2;vector-effect:non-scaling-stroke}
+.escuro{background:var(--escuro);color:var(--escuro-fg)}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.25rem;position:relative;z-index:2}
+.topo .logo img{height:28px;width:auto}
+.topo nav{display:flex;align-items:center;gap:1.5rem;font-size:.9375rem}
+.topo nav a{text-decoration:none;color:var(--escuro-muted)}
+.topo nav a:hover{color:var(--escuro-fg)}
+.topo nav .so-desktop{display:none}
+@media (min-width:768px){.topo nav .so-desktop{display:inline}.topo .logo img{height:32px}}
 
-.secao{padding-block:4rem}
-@media (min-width:768px){.secao{padding-block:4.5rem}}
-.secao h2{font-size:clamp(1.75rem,3.6vw,2.5rem);line-height:1.15}
+.hero{position:relative;overflow:hidden}
+.hero-texto{padding-block:3rem 1rem;position:relative;z-index:2}
+@media (min-width:768px){.hero-texto{padding-block:5rem 0}}
+.hero .sobretitulo{color:var(--escuro-muted)}
+.hero h1{font-size:clamp(2.6rem,6.6vw,5.25rem);line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:13ch}
+.hero .lead{font-size:clamp(1.0625rem,1.8vw,1.25rem);color:var(--escuro-muted);max-width:34ch;margin-top:1.5rem}
+.hero .acoes{margin-top:2.25rem}
+.mar{position:relative;height:clamp(190px,26vw,320px);margin-top:-1rem}
+.mar svg{position:absolute;inset:0;width:100%;height:100%}
+.mar .frente{z-index:2}
+.mar .linha{fill:none;stroke:var(--mare);stroke-width:2;vector-effect:non-scaling-stroke}
+.boia{position:absolute;z-index:1;right:12%;bottom:17%;width:clamp(78px,10.5vw,148px);transform-origin:50% 80%;animation:boiar 5.5s ease-in-out infinite}
+.fundo-onda{animation:deriva 9s ease-in-out infinite alternate}
+@keyframes boiar{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+@keyframes deriva{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.boia,.fundo-onda{animation:none}}
 
-.servicos-grade{display:grid;gap:2rem}
-@media (min-width:900px){.servicos-grade{grid-template-columns:1fr 2fr;gap:4rem}}
-.servicos-grade .intro{color:var(--muted);margin-top:1rem;max-width:30ch}
-.servicos{list-style:none;margin:0;padding:0}
-.servicos li{display:grid;gap:.375rem;padding-block:1.5rem;border-top:1px solid var(--linha)}
-.servicos li:last-child{border-bottom:1px solid var(--linha)}
-@media (min-width:640px){.servicos li{grid-template-columns:11rem 1fr;gap:1.5rem;align-items:baseline}}
-.servicos h3{font-size:1.25rem}
-.servicos p{color:var(--muted)}
+.secao{padding-block:4.5rem}
+@media (min-width:768px){.secao{padding-block:6rem}}
+.cabeca{display:grid;gap:.75rem;margin-bottom:2.5rem}
+@media (min-width:768px){.cabeca{grid-template-columns:1fr 1fr;align-items:end;margin-bottom:3.5rem}}
+.cabeca h2{font-size:clamp(2.25rem,5vw,3.5rem);line-height:1.05;font-weight:700;letter-spacing:-.035em}
+.cabeca p{color:var(--muted);max-width:40ch}
 
-.wendly{display:grid;gap:2rem;align-items:center}
-@media (min-width:900px){.wendly{grid-template-columns:1.15fr 1fr;gap:4rem}}
-.wendly .imagem{border-radius:16px;overflow:hidden;background:var(--superficie)}
-.wendly .titulo{display:flex;align-items:center;gap:.875rem;margin-bottom:1rem}
-.wendly .titulo img{width:52px;height:52px;border-radius:12px}
-.wendly p + p{margin-top:1rem}
-.wendly .nota{font-size:.9375rem;color:var(--muted)}
-.wendly .link-seta{display:inline-block;margin-top:1.5rem}
+.wendly{background:var(--w-fundo);color:var(--w-texto);border-radius:28px;padding:2.25rem 1.5rem;display:grid;gap:2.5rem;align-items:center;overflow:hidden}
+@media (min-width:900px){.wendly{grid-template-columns:1fr 1.2fr;padding:4rem 3rem 4rem 3.5rem;gap:2.5rem}}
+.wendly-marca{display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem}
+.wendly-marca img{width:64px;height:64px;border-radius:16px}
+.wendly-marca .selo{font-size:.8125rem;font-weight:600;color:var(--w-fundo);background:var(--w-verde);border-radius:999px;padding:.2rem .7rem;display:inline-block;margin-bottom:.35rem}
+.wendly-marca h3{font-size:1.75rem;line-height:1.1}
+.wendly-titulo{font-size:clamp(1.75rem,3.4vw,2.6rem);line-height:1.1;font-weight:700;letter-spacing:-.03em}
+.wendly-texto > p:not(.wendly-titulo):not(.nota){color:var(--w-muted);margin-top:1.25rem;max-width:44ch}
+.passos{list-style:none;margin:1.75rem 0 0;padding:0;display:grid;gap:.75rem;counter-reset:passo}
+.passos li{display:flex;gap:.875rem;align-items:baseline;counter-increment:passo}
+.passos li::before{content:counter(passo);flex:none;width:1.75rem;height:1.75rem;border-radius:50%;background:rgba(110,220,140,.16);color:var(--w-verde);font-size:.875rem;font-weight:700;display:grid;place-items:center;transform:translateY(.35rem)}
+.wendly .acoes{margin-top:2.25rem}
+.botao-wendly{background:var(--w-verde);color:#0D2418}
+.wendly .link-seta{color:var(--w-texto)}
+.wendly .botao:focus-visible,.wendly a:focus-visible{outline-color:var(--w-verde)}
+.nota{font-size:.875rem;color:var(--w-muted);margin-top:1rem}
+.telas{display:flex;justify-content:center;align-items:flex-end;gap:3%;padding-top:1.5rem}
+.telas img{width:31%;border-radius:clamp(16px,2.6vw,30px);border:clamp(4px,.6vw,7px) solid #070B0C;box-shadow:0 24px 48px rgba(0,0,0,.35)}
+.telas img:nth-child(2){width:36%;transform:translateY(-1.5rem)}
 
-.nome{display:grid;gap:2rem;align-items:center}
-@media (min-width:768px){.nome{grid-template-columns:auto 1fr;gap:3.5rem}}
-.nome .simbolo{width:88px}
-@media (min-width:768px){.nome .simbolo{width:120px}}
-.nome p{font-size:clamp(1.1875rem,2.2vw,1.4375rem);line-height:1.55;max-width:40ch;margin-top:1rem}
+.outros{display:grid;gap:3.5rem 2rem;margin-top:4rem}
+@media (min-width:768px){.outros{grid-template-columns:1fr 1fr}}
+.projeto img{border-radius:18px;aspect-ratio:16/10;width:100%;object-fit:cover;background:var(--superficie)}
+.projeto .info{margin-top:1.25rem}
+.tags{display:flex;flex-wrap:wrap;gap:.375rem;list-style:none;margin:0 0 .75rem;padding:0}
+.tags li{font-size:.8125rem;padding:.25rem .625rem;border-radius:999px;border:1px solid var(--linha);color:var(--muted)}
+.tags .andamento{border-color:var(--mare);color:var(--mare)}
+.projeto h3{font-size:1.5rem}
+.projeto p{color:var(--muted);margin-top:.5rem;max-width:46ch}
+@media (min-width:768px){
+  .projeto.largo{grid-column:1 / -1;display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+  .projeto.largo .info{margin-top:0}
+}
 
-.contato{background:var(--superficie);border-radius:20px;padding:3rem 1.5rem;text-align:left}
-@media (min-width:768px){.contato{padding:4.5rem 4rem}}
-.contato p{color:var(--muted);margin-top:1rem;max-width:42ch}
-.contato .acoes{margin-top:2rem}
+.depoimentos-faixa{background:var(--superficie)}
+.depoimentos{display:grid;gap:1rem}
+@media (min-width:900px){.depoimentos{grid-template-columns:repeat(3,1fr)}}
+.depoimento{margin:0;background:var(--cartao);border-radius:20px;padding:2rem 1.75rem;display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.depoimento blockquote{margin:0}
+.depoimento blockquote::before{content:"“";display:block;font-size:4rem;line-height:.8;height:2.25rem;color:var(--mare);font-weight:700}
+.depoimento blockquote p{font-size:1.0625rem;line-height:1.6}
+.depoimento figcaption{display:flex;align-items:center;gap:.875rem;font-size:.9375rem}
+.depoimento figcaption strong{display:block;font-weight:600}
+.depoimento figcaption span span{color:var(--muted)}
+.inicial{flex:none;width:44px;height:44px;border-radius:50%;background:var(--escuro);color:var(--escuro-fg);display:grid;place-items:center;font-weight:600;font-size:.875rem}
 
-.rodape{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-block:3rem 2.5rem;font-size:.9375rem;color:var(--muted)}
+.servicos{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+@media (min-width:640px){.servicos{grid-template-columns:1fr 1fr}}
+@media (min-width:1024px){.servicos{grid-template-columns:repeat(4,1fr)}}
+.servicos li{border-top:1px solid var(--linha);padding-top:1.5rem}
+.servicos li::before{content:"";display:block;width:32px;height:3px;border-radius:2px;background:var(--mare);margin:-1.5rem 0 1.4rem;transform:translateY(-1px)}
+.servicos h3{font-size:1.375rem}
+.servicos p{color:var(--muted);margin-top:.625rem;font-size:1rem;max-width:32ch}
+
+.contato{padding-block:5rem}
+@media (min-width:768px){.contato{padding-block:7rem}}
+.contato h2{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:13ch}
+.contato p{color:var(--escuro-muted);margin-top:1.25rem;max-width:42ch;font-size:1.125rem}
+.contato .acoes{margin-top:2.5rem}
+.contato .link-seta{color:var(--escuro-fg)}
+
+.rodape{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-block:2rem 2.5rem;font-size:.9375rem;color:var(--escuro-muted);border-top:1px solid var(--escuro-linha)}
 .rodape .marca{display:flex;align-items:center;gap:.75rem}
 .rodape img{height:24px;width:auto}
 .rodape .links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
-.rodape a{color:var(--muted)}
-.rodape a:hover{color:var(--fg)}
+.rodape a{color:var(--escuro-muted)}
+.rodape a:hover{color:var(--escuro-fg)}
 </style>
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div class="escuro hero">
 <header class="envolve topo">
-<a class="logo" href="/" aria-label="Floater Labs, início">
-<picture>
-<source srcset="logo/marca-branca.svg" media="(prefers-color-scheme: dark)">
-<img src="logo/marca.svg" alt="Floater Labs" width="177" height="30">
-</picture>
-</a>
+<a class="logo" href="/" aria-label="Floater Labs, início"><img src="logo/marca-branca.svg" alt="Floater Labs" width="177" height="30"></a>
 <nav aria-label="Principal">
-<a class="so-desktop" href="#servicos">O que fazemos</a>
-<a class="so-desktop" href="#wendly">Wendly</a>
+<a class="so-desktop" href="#projetos">Projetos</a>
+<a class="so-desktop" href="#servicos">Serviços</a>
 <a href="#contato">Contato</a>
 </nav>
 </header>
-
-<main id="conteudo">
-<section class="envolve hero">
+<section class="envolve hero-texto" id="conteudo">
 <p class="sobretitulo">Estúdio de apps e web</p>
 <h1>Criamos apps, sites e sistemas que dão vontade de usar.</h1>
-<p class="lead">Cuidamos do design, do código e da publicação, do primeiro esboço até o app na loja.</p>
+<p class="lead">Design, código e publicação: do primeiro esboço até o app na loja e o site no ar.</p>
 <div class="acoes">
-<a class="botao" href="https://www.instagram.com/floater.labs/">Conversar no Instagram</a>
-<a class="link-seta" href="#wendly">Conhecer o Wendly, nosso app</a>
+<a class="botao botao-claro" href="#contato">Fale com a gente</a>
+<a class="link-seta" href="#projetos">Ver projetos</a>
+</div>
+</section>
+<div class="mar" aria-hidden="true">
+<svg viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fundo-onda" d="M-60 96C200 60 460 60 720 96S1240 132 1500 96V320H-60Z" fill="#10242A"/><path d="M0 150C260 120 520 122 760 152S1220 184 1440 146V320H0Z" fill="#133037"/></svg>
+<img class="boia" src="logo/simbolo-branco.svg" alt="" width="200" height="284">
+<svg class="frente" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0 214C300 186 560 190 820 218S1260 242 1440 206V320H0Z" fill="#173C44"/><path class="linha" d="M0 214C300 186 560 190 820 218S1260 242 1440 206"/></svg>
+</div>
+</div>
+
+<main>
+<section class="envolve secao" id="projetos" aria-labelledby="t-projetos">
+<div class="cabeca">
+<h2 id="t-projetos">Projetos</h2>
+<p>Apps, sites e produtos que desenhamos e colocamos no ar, para clientes e para nós mesmos.</p>
+</div>
+
+<article class="wendly" aria-labelledby="t-wendly">
+<div class="wendly-texto">
+<div class="wendly-marca">
+<img src="img/projetos/wendly-icone.webp" alt="" width="64" height="64">
+<div><span class="selo">Nosso app</span><h3 id="t-wendly">Wendly</h3></div>
+</div>
+<p class="wendly-titulo">Sua lista de tarefas agora tem um explorador.</p>
+<p>Cada tarefa feita enche a mochila dele. Você toca em Partir, ele sai em expedição pelo mapa e volta horas depois com moedas, baús e, às vezes, uma lembrança rara.</p>
+<ol class="passos">
+<li>Anote o que precisa fazer hoje.</li>
+<li>Cada tarefa concluída vai para a mochila.</li>
+<li>Toque em Partir e veja o que ele traz de volta.</li>
+</ol>
+<div class="acoes">
+<a class="botao botao-wendly" href="https://play.google.com/store/apps/details?id=com.floaterlabs.wendly">Baixar na Google Play</a>
+<a class="link-seta" href="https://wendly.floaterlabs.com/">Conhecer o Wendly</a>
+</div>
+<p class="nota">Para Android. Sem cadastro, sem anúncios e sem compras.</p>
+</div>
+<div class="telas">
+<img src="img/projetos/wendly-partir.webp" alt="Tela do Wendly com a expedição pronta para partir e as tarefas do dia" width="600" height="1304" loading="lazy">
+<img src="img/projetos/wendly-voltou.webp" alt="Tela do Wendly avisando que a expedição voltou com moedas e uma lembrança nova" width="600" height="1304" loading="lazy">
+<img src="img/projetos/wendly-lembranca.webp" alt="Tela do Wendly mostrando a lembrança rara Vela" width="600" height="1304" loading="lazy">
+</div>
+</article>
+
+<div class="outros">
+<article class="projeto">
+<img src="img/projetos/myconian.webp" alt="Página inicial do site da Myconian Luxury, com o mar de Mykonos" width="1600" height="1000" loading="lazy">
+<div class="info">
+<ul class="tags"><li>Site</li><li>UI</li></ul>
+<h3>Myconian Luxury</h3>
+<p>Site de uma empresa de concierge de luxo em Mykonos, na Grécia: interface, protótipo e desenvolvimento.</p>
+</div>
+</article>
+<article class="projeto">
+<img src="img/projetos/greenlab.webp" alt="Página inicial do e-commerce da Green Lab Food, de comida natural para cães" width="1600" height="1000" loading="lazy">
+<div class="info">
+<ul class="tags"><li>E-commerce</li><li>UX e UI</li></ul>
+<h3>Green Lab Food</h3>
+<p>E-commerce de comida natural para cães, com planos por assinatura e um caminho de compra mais curto.</p>
+</div>
+</article>
+<article class="projeto">
+<img src="img/projetos/sow.webp" alt="Página inicial do site da Sow Soluções, com fotos de produtos para casa" width="1600" height="1000" loading="lazy">
+<div class="info">
+<ul class="tags"><li>Site</li></ul>
+<h3>Sow Soluções</h3>
+<p>Site de uma distribuidora de utilidades para casa e organização, com as marcas atendidas e pedido pelo WhatsApp.</p>
+</div>
+</article>
+<article class="projeto">
+<img src="img/projetos/evergreen.webp" alt="Página inicial do site da Evergreen Vidros" width="1600" height="1000" loading="lazy">
+<div class="info">
+<ul class="tags"><li>Site</li></ul>
+<h3>Evergreen Vidros</h3>
+<p>Site de uma vidraçaria, com os serviços de box, janelas, espelhos e fachadas e orçamento pelo WhatsApp.</p>
+</div>
+</article>
+<article class="projeto largo">
+<img src="img/projetos/leadfirst.webp" alt="Conversa de WhatsApp atendida pelo LeadFirst e o resumo do lead para o corretor" width="1600" height="1000" loading="lazy">
+<div class="info">
+<ul class="tags"><li class="andamento">Em desenvolvimento</li><li>Produto</li><li>IA</li></ul>
+<h3>LeadFirst</h3>
+<p>Atendimento automático no WhatsApp para corretores de imóveis: responde na hora, entende o interesse e chama o corretor quando o lead está quente.</p>
+</div>
+</article>
 </div>
 </section>
 
-<div class="envolve" aria-hidden="true">
-<svg class="onda" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 8C300 8 300 32 600 32S900 8 1200 8"/></svg>
+<div class="depoimentos-faixa">
+<section class="envolve secao" aria-labelledby="t-depoimentos">
+<div class="cabeca">
+<h2 id="t-depoimentos">O que dizem os clientes</h2>
+<p>Quem já tirou um projeto do papel com a gente.</p>
+</div>
+<div class="depoimentos">
+<figure class="depoimento">
+<blockquote><p>Adorei o resultado! O site ficou moderno, bonito e com a cara da Green Lab Food. Um trabalho profissional que superou as minhas expectativas. Recomendo!</p></blockquote>
+<figcaption><span class="inicial" aria-hidden="true">GS</span><span><strong>Gislaine Silva</strong><span>Green Lab Food</span></span></figcaption>
+</figure>
+<figure class="depoimento">
+<blockquote><p>Gostei muito do resultado. O site ficou moderno e profissional, e passou exatamente a imagem que eu queria para a Sow. Recomendo muito a Floater Labs!</p></blockquote>
+<figcaption><span class="inicial" aria-hidden="true">CA</span><span><strong>Carla Alcantara</strong><span>Sow Soluções</span></span></figcaption>
+</figure>
+<figure class="depoimento">
+<blockquote><p>Excelente experiência! A Floater Labs transformou a nossa ideia em um site moderno, funcional e com uma apresentação profissional. Ficamos muito satisfeitos com o resultado.</p></blockquote>
+<figcaption><span class="inicial" aria-hidden="true">MR</span><span><strong>Mauricio Reis</strong><span>LeadFirst</span></span></figcaption>
+</figure>
+</div>
+</section>
 </div>
 
 <section class="envolve secao" id="servicos" aria-labelledby="t-servicos">
-<div class="servicos-grade">
-<div>
+<div class="cabeca">
 <h2 id="t-servicos">O que fazemos</h2>
-<p class="intro">Projetos do zero ou a continuação de algo que já existe.</p>
+<p>Projetos do zero ou a continuação de algo que já existe.</p>
 </div>
 <ul class="servicos">
 <li><h3>Apps</h3><p>Apps para iPhone e Android, do protótipo à publicação nas lojas.</p></li>
-<li><h3>Sites</h3><p>Sites rápidos, bonitos e que funcionam bem no celular, de uma página só a um site institucional.</p></li>
+<li><h3>Sites</h3><p>Sites rápidos e bonitos, que funcionam bem no celular, de uma página só a um site institucional.</p></li>
 <li><h3>Sistemas</h3><p>Painéis, ferramentas internas e sistemas web sob medida para o seu negócio.</p></li>
 <li><h3>Design e UX</h3><p>Interface, fluxos e protótipos navegáveis para testar a ideia antes de programar.</p></li>
 </ul>
-</div>
-</section>
-
-<section class="envolve secao" id="wendly" aria-labelledby="t-wendly">
-<div class="wendly">
-<div class="imagem"><img src="img/wendly.webp" alt="O explorador do Wendly acampado numa ilha flutuante, à noite, com um baú numa ilha ao lado" width="1024" height="500" loading="lazy"></div>
-<div>
-<p class="sobretitulo">Feito aqui</p>
-<div class="titulo"><img src="img/wendly-icone.webp" alt="" width="52" height="52" loading="lazy"><h2 id="t-wendly">Wendly</h2></div>
-<p>Nosso primeiro app próprio: uma lista de tarefas com um explorador. Cada tarefa feita enche a mochila dele, e ele volta das expedições com moedas, baús e lembranças.</p>
-<p class="nota">Disponível para Android. Sem cadastro, sem anúncios e sem compras.</p>
-<a class="link-seta" href="https://wendly.floaterlabs.com/">Conhecer o Wendly</a>
-</div>
-</div>
-</section>
-
-<section class="envolve secao" aria-labelledby="t-nome">
-<div class="nome">
-<picture>
-<source srcset="logo/simbolo-branco.svg" media="(prefers-color-scheme: dark)">
-<img class="simbolo" src="logo/simbolo.svg" alt="" width="120" height="170">
-</picture>
-<div>
-<h2 id="t-nome">Por que floater?</h2>
-<p>Floater é uma manobra do surfe: o surfista sobe na parte da onda que está quebrando, desliza por cima dela e volta para a base. É a ideia que levamos para cada projeto: passar por cima do que parece difícil e deixar tudo leve para quem usa.</p>
-</div>
-</div>
-</section>
-
-<section class="envolve secao" id="contato" aria-labelledby="t-contato">
-<div class="contato">
-<h2 id="t-contato">Tem um projeto em mente?</h2>
-<p>Conte o que você quer construir, por e-mail ou pelo Instagram. A conversa é sem compromisso.</p>
-<div class="acoes">
-<a class="botao" href="mailto:contact@floaterlabs.com">contact@floaterlabs.com</a>
-<a class="link-seta" href="https://www.instagram.com/floater.labs/">Chamar no Instagram</a>
-</div>
-</div>
 </section>
 </main>
 
-<footer class="envolve rodape">
+<div class="escuro">
+<section class="envolve contato" id="contato" aria-labelledby="t-contato">
+<h2 id="t-contato">Tem um projeto em mente?</h2>
+<p>Conte o que você quer construir, por e-mail ou pelo Instagram. A conversa é sem compromisso.</p>
+<div class="acoes">
+<a class="botao botao-claro" href="mailto:contact@floaterlabs.com">contact@floaterlabs.com</a>
+<a class="link-seta" href="https://www.instagram.com/floater.labs/">Chamar no Instagram</a>
+</div>
+</section>
+<footer class="envolve">
+<div class="rodape">
 <div class="marca">
-<picture>
-<source srcset="logo/simbolo-branco.svg" media="(prefers-color-scheme: dark)">
-<img src="logo/simbolo.svg" alt="" width="17" height="24">
-</picture>
+<img src="logo/simbolo-branco.svg" alt="" width="17" height="24">
 <span>© 2026 Floater Labs</span>
 </div>
 <div class="links">
 <a href="mailto:contact@floaterlabs.com">contact@floaterlabs.com</a>
 <a href="https://www.instagram.com/floater.labs/">Instagram @floater.labs</a>
 </div>
+</div>
 </footer>
+</div>
 </body>
 </html>
