@@ -103,11 +103,12 @@ p{margin:0}
 .contato{background:var(--superficie);border-radius:20px;padding:3rem 1.5rem;text-align:left}
 @media (min-width:768px){.contato{padding:4.5rem 4rem}}
 .contato p{color:var(--muted);margin-top:1rem;max-width:42ch}
-.contato .botao{margin-top:2rem}
+.contato .acoes{margin-top:2rem}
 
 .rodape{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-block:3rem 2.5rem;font-size:.9375rem;color:var(--muted)}
 .rodape .marca{display:flex;align-items:center;gap:.75rem}
 .rodape img{height:24px;width:auto}
+.rodape .links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
 .rodape a{color:var(--muted)}
 .rodape a:hover{color:var(--fg)}
 </style>
@@ -187,8 +188,11 @@ p{margin:0}
 <section class="envolve secao" id="contato" aria-labelledby="t-contato">
 <div class="contato">
 <h2 id="t-contato">Tem um projeto em mente?</h2>
-<p>Conte o que você quer construir. A conversa começa pelo Instagram, sem compromisso.</p>
-<a class="botao" href="https://www.instagram.com/floater.labs/">Chamar no Instagram</a>
+<p>Conte o que você quer construir, por e-mail ou pelo Instagram. A conversa é sem compromisso.</p>
+<div class="acoes">
+<a class="botao" href="mailto:contact@floaterlabs.com">contact@floaterlabs.com</a>
+<a class="link-seta" href="https://www.instagram.com/floater.labs/">Chamar no Instagram</a>
+</div>
 </div>
 </section>
 </main>
@@ -201,7 +205,10 @@ p{margin:0}
 </picture>
 <span>© 2026 Floater Labs</span>
 </div>
+<div class="links">
+<a href="mailto:contact@floaterlabs.com">contact@floaterlabs.com</a>
 <a href="https://www.instagram.com/floater.labs/">Instagram @floater.labs</a>
+</div>
 </footer>
 </body>
 </html>
